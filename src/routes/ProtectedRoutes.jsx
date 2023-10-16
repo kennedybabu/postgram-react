@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 function ProtectedRoute({children}) {
     const {auth} = JSON.parse(localStorage.getItem('auth'))
 
-    return auth.account ? <>{children}</> : <Navigate to='/login/' />
+    return auth?.account ? <>{children}</> : < Navigate to='/login/' />
 }
 
 
