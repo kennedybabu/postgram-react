@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Button,Form } from 'react-bootstrap'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
+import { useUserActions } from '../../hooks/use.actions'
+
 
 const LoginForm = () => {
     const navigate = useNavigate()
@@ -11,6 +13,7 @@ const LoginForm = () => {
         password:''
     })
     const [error, setError] = useState(null)
+    const userActions = useUserActions()
 
 
     const handleSubmit = (event) => {
@@ -30,22 +33,11 @@ const LoginForm = () => {
         }
 
 
-        axios.post('http://localhost:8000/api/auth/login/', data)
-            .then((res) => {
-                //reg the acc and tokens in the localstorage
-
-                localStorage.setItem('auth', JSON.stringify({
-                    access: res.data.access,
-                    refresh: res.data.refresh,
-                    user: res.data.user
-                }))
-
-                navigate("/")
-            }).catch((err) => {
-                if(err.message){
-                    setError(err.message)
-                }
-            })
+        userActions.login(data).catch((err) => {
+            if(err.message){
+                setError(err.message)
+            }
+        })
     }
 
   return (

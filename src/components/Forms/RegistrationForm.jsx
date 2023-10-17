@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {Form, Button} from "react-bootstrap"
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
-
+import { useUserActions } from "../../hooks/use.actions";
 
 
 const RegistrationForm = () => {
@@ -17,6 +17,7 @@ const RegistrationForm = () => {
         password:''
     })
     const [error, setError] = useState(null)
+    const userActions = useUserActions()
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -37,24 +38,11 @@ const RegistrationForm = () => {
             bio: form.bio
         }
 
-        axios.post('http://localhost:8000/api/auth/register/',data)
-        .then((res) => {
-            //register the account and token in the store 
-
-            localStorage.setItem('auth', JSON.stringify({
-                access: res.data.access,
-                refresh: res.data.refresh,
-                user: res.data.user,
-            }))
-
-            navigate("/")
-        })
-        .catch((err) => {
-            if(err.message) {
-                setError(err.request.response)
-            }
-        })
-
+        userActions.register(data).catch((err) => {
+                if(err.message) {
+                    setError(err.request.response)
+                }
+            })
     }
 
 
