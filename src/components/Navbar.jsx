@@ -24,9 +24,10 @@ const NavigationBar = () => {
                         roundedCircle 
                         width={36}
                         height={36}/>
-                    }/>
+                    }>
                     <NavDropdown.Item href="#">Profile</NavDropdown.Item> 
                     <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
+                    </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
         </Container>

@@ -1,5 +1,4 @@
 import axios from "axios"
-import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 
@@ -54,7 +53,7 @@ function getUser(){
 //get the refresh token
 function getAccessToken() {
     const auth = JSON.parse(localStorage.getItem('auth'))
-    return auth.refresh
+    return auth.access
 }
 
 

@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import axiosService from '../../helpers/axios'
 import { getUser } from "../../hooks/use.actions";
-
+import Toaster from "../Toaster"
 
 
 function CreatePost(){
@@ -15,7 +15,12 @@ function CreatePost(){
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
 
+    //toaster
+    const [showToast, setShowToast] = useState(false)
+    const [toastMessage, setToastMessage] = useState('')
+    const [toastType, setToastType] = useState('')
 
+    
     const handleSubmit = (e) => {
         e.preventDefault()
         const createPostForm = e.currentTarget 
@@ -32,11 +37,15 @@ function CreatePost(){
         }
 
 
-        axiosService.post("/post", data).then(() => {
+        axiosService.post("/api/post/", data).then(() => {
             handleClose()
+            setToastMessage('Post created 🚀')
+            setToastType('success')
             setForm({})
-        }).catch((err) =>{
-            console.log(err)
+            setShowToast(true)
+        }).catch(() =>{
+            setToastMessage('An error occured')
+            setToastType('danger')
         })
     }
 
@@ -63,7 +72,7 @@ function CreatePost(){
                             <Form.Control 
                             name="body"
                             value={form.body} 
-                            onChange={(e) => setForm({...form, body:e.targerowt.value})}
+                            onChange={(e) => setForm({...form, body:e.target.value})}
                             as="textarea"
                             rows={3}
                             />
@@ -78,6 +87,12 @@ function CreatePost(){
                     </Button>
                 </Modal.Footer>
             </Modal>
+            <Toaster 
+            title='Post!'
+            message={toastMessage}
+            showToast={showToast} 
+            type={toastType} 
+            onClose={() => setShowToast(false)}/>
         </>
     )
 }

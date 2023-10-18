@@ -9,7 +9,7 @@ const LoginForm = () => {
     const navigate = useNavigate()
     const [validated, setValidated] = useState(false)
     const [form, setForm] = useState({
-        username:'',
+        email:'',
         password:''
     })
     const [error, setError] = useState(null)
@@ -28,7 +28,7 @@ const LoginForm = () => {
         setValidated(true)
 
         const data = {
-            username: form.username,
+            email: form.email,
             password: form.password
         }
 
@@ -51,7 +51,7 @@ const LoginForm = () => {
             <Form.Label>Username</Form.Label>
             <Form.Control 
             value={form.username}
-            onChange={(e) => setForm({...form, username: e.target.value})}
+            onChange={(e) => setForm({...form, email: e.target.value})}
             required 
             type='text'
             placeholder='Enter username'/>
