@@ -6,7 +6,7 @@ import useSWR from "swr"
 import { fetcher } from "../helpers/axios"
 import { getUser } from '../hooks/use.actions'
 import CreatePost from '../components/posts/CreatePost'
-import Post from '../components/Post'
+import Post from '../components/posts/Post'
 
 
 const Home = () => {

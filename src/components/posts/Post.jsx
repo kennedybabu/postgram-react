@@ -1,9 +1,9 @@
 import React from 'react';
 import { format } from "timeago.js";
 import { LikeFilled, CommentOutlined, LikeOutlined } from "@ant-design/icons"
-import { Image, Card, Dropdown } from 'react-bootstrap';
-import { randomAvatar } from "../utils"
-import axiosService from '../helpers/axios';
+import { Image, Card } from 'react-bootstrap';
+import { randomAvatar } from "../../utils"
+import axiosService from '../../helpers/axios';
 
 const Post = (props) => {
     const { post, refresh } = props 
@@ -66,7 +66,7 @@ const Post = (props) => {
                 }}
                 onClick={() => {
                     if(post.liked) {
-                        handleLikeClick('remove-like')
+                        handleLikeClick('remove_like')
                     } else {
                         handleLikeClick('like')
                     }
