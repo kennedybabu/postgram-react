@@ -5,7 +5,8 @@ import { getUser } from "../../hooks/use.actions";
 import Toaster from "../Toaster"
 
 
-function CreatePost(){
+function CreatePost(props){
+    const {refresh} = props
     const [show, setShow] = useState(false)
     const [validated, setValidated] = useState(false)
     const [form, setForm] = useState({
@@ -37,11 +38,12 @@ function CreatePost(){
         }
 
 
-        axiosService.post("/api/post/", data).then(() => {
+        axiosService.post("/post/", data).then(() => {
             handleClose()
             setToastMessage('Post created 🚀')
             setToastType('success')
             setForm({})
+            refresh()
             setShowToast(true)
         }).catch(() =>{
             setToastMessage('An error occured')
