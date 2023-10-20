@@ -5,23 +5,10 @@ import { Image, Card, Dropdown } from 'react-bootstrap';
 import { randomAvatar } from "../../utils"
 import axiosService from '../../helpers/axios';
 import Toaster from '../Toaster';
-import { MoreOutlined } from "@ant-design/icons"
 import { getUser } from '../../hooks/use.actions';
 import UpdatePost from './UpdatePost';
 import { Link } from 'react-router-dom';
-
-
-const MoreToggleIcon = React.forwardRef(({onClick}, ref) => (
-    <a 
-    href='#'
-    ref={ref} 
-    onClick={(e) => {
-        e.preventDefault()
-        onClick(e)
-    }}>
-        <MoreOutlined />
-    </a>
-))
+import MoreToggleIcon from '../MoreToggleIcon';
 
 
 const Post = (props) => {

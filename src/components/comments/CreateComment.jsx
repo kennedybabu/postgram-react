@@ -57,7 +57,6 @@ const CreateComment = (props) => {
 
     }
 
-
   return (
     <Form className='d-flex flex-row justify-content-between' noValidate validated={validated} onSubmit={handleSubmit}>
         <Image 
