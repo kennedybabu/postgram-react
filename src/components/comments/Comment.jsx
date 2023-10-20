@@ -12,7 +12,7 @@ import MoreToggleIcon from '../MoreToggleIcon'
 
 const Comment = (props) => {
     const {postId, comment, refresh} = props
-    const {toaster, setToaster} = useContext(Context)
+    const { setToaster} = useContext(Context)
     const user = getUser()
 
     const handleDelete = () => {
@@ -60,7 +60,10 @@ const Comment = (props) => {
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
                                 <Dropdown.Item>
-                                    Modify
+                                    <UpdateComment 
+                                    comment={comment}
+                                    refresh={refresh} 
+                                    postId={postId}/>
                                 </Dropdown.Item>
                                 <Dropdown.Item onClick={handleDelete} className='text-danger'>
                                     Delete

@@ -1,9 +1,10 @@
 import React from 'react'
 import { MoreOutlined } from "@ant-design/icons"
+import { Link } from 'react-router-dom'
 
 
 const MoreToggleIcon = React.forwardRef(({onClick}, ref) => (
-    <a 
+    <Link 
     href='#'
     ref={ref} 
     onClick={(e) => {
@@ -11,7 +12,7 @@ const MoreToggleIcon = React.forwardRef(({onClick}, ref) => (
         onClick(e)
     }}>
         <MoreOutlined />
-    </a>
+    </Link>
 ))
 
 
