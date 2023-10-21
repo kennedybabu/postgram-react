@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { format } from "timeago.js"
 import { Image, Card, Dropdown } from 'react-bootstrap'
 import { randomAvatar } from '../../utils'
@@ -7,6 +7,8 @@ import { getUser } from '../../hooks/use.actions'
 import UpdateComment from './UpdateComment'
 import { Context } from '../Layout'
 import MoreToggleIcon from '../MoreToggleIcon'
+import { LikeFilled, LikeOutlined } from "@ant-design/icons"
+
 
 
 
@@ -32,6 +34,13 @@ const Comment = (props) => {
                 title: "Comment Deleted"
             })
         })
+    }
+
+
+    const handleLikeClick = (action) => {
+        axiosService.post(`/post/${postId}/comment/${comment.id}/${action}/`).then(() => {
+            refresh()
+        }).catch((err) => console.log(err))
     }
 
 
@@ -74,6 +83,42 @@ const Comment = (props) => {
                 )}
             </Card.Title>
             <Card.Text>{comment.body}</Card.Text>
+            <div className="d-flex flex-row">
+                <LikeFilled 
+                style={{
+                    color: '#ffff',
+                    backgroundColor: '#0d6efd',
+                    borderRadius: '50%',
+                    width:'18px',
+                    height: '18px',
+                    fontSize:'75%',
+                    padding: '2px',
+                    margin: '3px'
+                }}/>
+                <p className="ms-1 fs-6">
+                    <small>{comment.likes_count} like</small>
+                </p>
+            </div>
+            <div className="d-flex flex-row">
+                <LikeOutlined 
+                style={{
+                    width:'24px',
+                    height: '24px',
+                    padding:'2px',
+                    fontSize:'20px',
+                    color: comment.liked ? '#0D6EFD' : '#c4c4c4'
+                }}
+                onClick={() => {
+                    if(comment.liked){
+                        handleLikeClick('remove_like')
+                    } else {
+                        handleLikeClick('like')
+                    }
+                }}/>
+                <p className='ms-1'>
+                    <small>Like</small>
+                </p>
+            </div>
         </Card.Body>
     </Card>
   )

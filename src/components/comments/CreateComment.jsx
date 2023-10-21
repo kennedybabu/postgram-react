@@ -14,7 +14,7 @@ const CreateComment = (props) => {
     const [form, setForm] = useState({})
 
 
-    const {toaster, setToaster} = useContext(Context)
+    const {setToaster} = useContext(Context)
 
     const user = getUser()
 
