@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { format } from "timeago.js";
 import { LikeFilled, CommentOutlined, LikeOutlined } from "@ant-design/icons"
 import { Image, Card, Dropdown } from 'react-bootstrap';
-import { randomAvatar } from "../../utils"
 import axiosService from '../../helpers/axios';
 import Toaster from '../Toaster';
 import { getUser } from '../../hooks/use.actions';
