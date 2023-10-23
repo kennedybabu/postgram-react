@@ -32,7 +32,7 @@ const Post = (props) => {
 
   return (
     <>
-     <Card className='rounded-3 my-4'>
+     <Card className='rounded-3 my-4' data-testid='post-test'>
         <Card.Body>
             <Card.Title className='d-flex flex-row justify-content-between'>         
                 <div className="d-flex flex-row">
@@ -49,7 +49,7 @@ const Post = (props) => {
                         </p>
                     </div>
                 </div>
-                {user.name === post.author.name && (
+                {user?.name === post.author.name && (
                     <div>
                         <Dropdown>
                             <Dropdown.Toggle as={MoreToggleIcon}>                                

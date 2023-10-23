@@ -53,7 +53,8 @@ const RegistrationForm = () => {
     className='border p-4 rounded'
     noValidate 
     validated={validated}
-    onSubmit={handleSubmit}>
+    onSubmit={handleSubmit}
+    data-testid='register-form'>
         <Form.Group>
             <Form.Label>First Name</Form.Label>
             <Form.Control 
@@ -61,7 +62,8 @@ const RegistrationForm = () => {
             onChange={(e) => setForm({...form, first_name: e.target.value})}
             required 
             type="text" 
-            placeholder="Enter first name"/>
+            placeholder="Enter first name"
+            data-testid='firstname-field'/>
             <Form.Control.Feedback type="invalid">
                 This file is required
             </Form.Control.Feedback>
@@ -74,7 +76,8 @@ const RegistrationForm = () => {
             onChange={(e) => setForm({...form, last_name: e.target.value})}
             required 
             type="text" 
-            placeholder="Enter last name" />
+            placeholder="Enter last name" 
+            data-testid='lastname-field'/>
             <Form.Control.Feedback type="invalid">
                 This file is required
             </Form.Control.Feedback>          
@@ -87,7 +90,8 @@ const RegistrationForm = () => {
             onChange={(e) => setForm({...form, username: e.target.value})}
             required 
             type='text'
-            placeholder='Enter username' /> 
+            placeholder='Enter username' 
+            data-testid='username-field'/> 
             <Form.Control.Feedback type='invalid'>
                 This file is required
             </Form.Control.Feedback>
@@ -100,7 +104,8 @@ const RegistrationForm = () => {
             onChange={(e) => setForm({...form, email:e.target.value})} 
             required 
             type='email' 
-            placeholder="Enter email"/>
+            placeholder="Enter email"
+            data-testid='email-field'/>
             <Form.Control.Feedback type="invalid">
                 Please provide a valid email
             </Form.Control.Feedback>
@@ -114,7 +119,8 @@ const RegistrationForm = () => {
             onChange={(e) => setForm({...form, password: e.target.value})}
             required 
             type="password" 
-            placeholder="Password" />
+            placeholder="Password" 
+            data-testid='password-field'/>
 
             <Form.Control.Feedback type='invalid'>
                 Please provide a valid password
@@ -128,7 +134,8 @@ const RegistrationForm = () => {
             onChange={(e) => setForm({...form, bio: e.target.value})}
             as="textarea" 
             rows={3} 
-            placeholder="A simple bio ... (Optional)"/>
+            placeholder="A simple bio ... (Optional)"
+            data-testid='bio-field'/>
         </Form.Group>
 
         <div className="text-content text-danger">

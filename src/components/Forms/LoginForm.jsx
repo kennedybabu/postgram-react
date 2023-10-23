@@ -46,7 +46,8 @@ const LoginForm = () => {
     className='border p-4 rounded'
     noValidate 
     validated={validated} 
-    onSubmit={handleSubmit}>
+    onSubmit={handleSubmit}
+    data-testid='login-form'>
         <Form.Group className='mb-3'>
             <Form.Label>Username</Form.Label>
             <Form.Control 
@@ -54,7 +55,8 @@ const LoginForm = () => {
             onChange={(e) => setForm({...form, email: e.target.value})}
             required 
             type='text'
-            placeholder='Enter username'/>
+            placeholder='Enter username'
+            data-testid='username-field'/>
             <Form.Control.Feedback type='invalid'>
                 This file is required
             </Form.Control.Feedback>
@@ -68,7 +70,8 @@ const LoginForm = () => {
             onChange={(e) => setForm({...form, password: e.target.value})}
             required 
             type='password' 
-            placeholder='Password'/> 
+            placeholder='Password'
+            data-testid='password-field'/> 
             <Form.Control.Feedback type='invalid'>
                 Please provide a valid password
             </Form.Control.Feedback>
