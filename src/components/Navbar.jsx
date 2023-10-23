@@ -1,7 +1,6 @@
 import React from 'react'
 import { Navbar, Container, Image, NavDropdown, Nav } from "react-bootstrap"
 import { Link, useNavigate } from 'react-router-dom'
-import { randomAvatar } from '../utils'
 import { getUser } from '../hooks/use.actions'
 
 const NavigationBar = () => {
@@ -22,7 +21,7 @@ const NavigationBar = () => {
                 <Nav>
                     <NavDropdown 
                     title={
-                        <Image src={randomAvatar()} 
+                        <Image src={user.avatar} 
                         roundedCircle 
                         width={36}
                         height={36}/>

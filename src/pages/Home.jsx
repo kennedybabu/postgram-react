@@ -1,7 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import { Row, Col, Image } from 'react-bootstrap'
-import { randomAvatar } from '../utils'
 import useSWR from "swr"
 import { fetcher } from "../helpers/axios"
 import { getUser } from '../hooks/use.actions'
@@ -30,11 +29,11 @@ const Home = () => {
           <Row className='border rounded align-items-center'>
             <Col className='flex-shrink-1'>
               <Image 
-              src={randomAvatar()} 
+              src={user.avatar} 
               roundedCircle 
               width={52}
               height={52} 
-              className='my-2'/>
+              className='my-2 border border-primary border-2'/>
             </Col>
             <Col sm={10} className='flex-grow-1'>
               <CreatePost refresh={posts.mutate}/>

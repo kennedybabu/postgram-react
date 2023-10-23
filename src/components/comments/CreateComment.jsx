@@ -2,14 +2,12 @@ import React, { useState, useContext } from 'react'
 import { Button, Form, Image } from 'react-bootstrap'
 import axiosService from '../../helpers/axios'
 import { getUser } from '../../hooks/use.actions'
-import { randomAvatar } from '../../utils'
 import { Context } from '../Layout'
 
 
 
 const CreateComment = (props) => {
     const { postId, refresh } = props
-    const [avatar, setAvatar] = useState(randomAvatar())
     const [validated, setValidated] = useState(false)
     const [form, setForm] = useState({})
 
@@ -60,11 +58,11 @@ const CreateComment = (props) => {
   return (
     <Form className='d-flex flex-row justify-content-between' noValidate validated={validated} onSubmit={handleSubmit}>
         <Image 
-        src={avatar}
+        src={user.avatar}
         roundedCircle 
         width={48}
         height={48}
-        className='my-2'/>
+        className='my-2 border'/>
         <Form.Group className='m-3 w-75'>
             <Form.Control 
             className='py-2 rounded-pill border-primary'

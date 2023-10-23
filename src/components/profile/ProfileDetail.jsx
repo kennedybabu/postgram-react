@@ -21,7 +21,8 @@ const ProfileDetail = (props) => {
             height={120}
             className='me-5 border border-primary border-2'/>
             <div className="d-flex flex-column justify-content-start align-self-center mt-2">
-                <p className="fs-4 m-0">
+                <p className='fs-4'>{user.first_name} {user.last_name}</p>
+                <p className="fs-7 text-lighter m-0">
                     {user.bio ? user.bio : "(No bio.)"}
                 </p>
                 <p className="fs-6">
@@ -29,7 +30,7 @@ const ProfileDetail = (props) => {
                 </p>
                 <Button 
                 variant='primary'
-                className='w-25'
+                size='sm'
                 onClick={() => navigate(`/profile/${user.id}/edit/`)}>
                     Edit
                 </Button>
