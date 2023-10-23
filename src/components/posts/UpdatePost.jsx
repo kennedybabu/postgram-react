@@ -51,7 +51,7 @@ const UpdatePost = (props) => {
 
   return (
     <>
-    <Dropdown.Item onClick={handleShow}>Modify</Dropdown.Item>
+    <Dropdown.Item data-testid='show-modal-form' onClick={handleShow}>Modify</Dropdown.Item>
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton className='border-0'>
             <Modal.Title>Update Post</Modal.Title>
@@ -75,7 +75,7 @@ const UpdatePost = (props) => {
         </Modal.Body>
         <Modal.Footer>
             <Button
-            data-testid="update-post-submit"
+            data-testid="update-post-button"
             variant='primary'
             onClick={handleSubmit}>
                 Modify
