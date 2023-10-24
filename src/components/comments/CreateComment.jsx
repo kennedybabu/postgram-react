@@ -56,9 +56,9 @@ const CreateComment = (props) => {
     }
 
   return (
-    <Form className='d-flex flex-row justify-content-between' noValidate validated={validated} onSubmit={handleSubmit}>
+    <Form data-testid='create-comment-form' className='d-flex flex-row justify-content-between' noValidate validated={validated} onSubmit={handleSubmit}>
         <Image 
-        src={user.avatar}
+        src={user?.avatar}
         roundedCircle 
         width={48}
         height={48}
@@ -70,13 +70,15 @@ const CreateComment = (props) => {
             placeholder='Write a comment'
             value={form.body}
             name='body'
+            data-testid='comment-body-field'
             onChange={(e) => setForm({ ...form, body: e.target.value })} />
         </Form.Group>
         <div className="m-auto">
             <Button 
             variant='primary'
             onClick={handleSubmit}
-            disabled={form.body === undefined}
+            data-testid='submit-button'
+            disabled={!form.body}
             size='small'>
                 Comment
             </Button>
