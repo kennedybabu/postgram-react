@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react'
 import { Button, Modal, Form, Dropdown } from 'react-bootstrap'
 import axiosService from '../../helpers/axios'
 import { Context } from '../Layout'
-import axios from 'axios'
 
 
 
@@ -66,19 +65,20 @@ const UpdateComment = (props) => {
         <Modal.Title>Update Comment</Modal.Title>
       </Modal.Header>
       <Modal.Body className='border-0'>
-        <Form data-testid='comment-body-field' noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form data-testid='update-comment-form' noValidate validated={validated} onSubmit={handleSubmit}>
           <Form.Group className='mb-3'>
             <Form.Control 
             name='body'
             value={form.body}
             onChange={(e) => setForm({...form, body: e.target.value })} 
             as='textarea' 
-            rows={3} />
+            rows={3}
+            data-testid='comment-body-field' />
           </Form.Group>
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant='primary' onClick={handleSubmit}>Modify</Button>
+        <Button variant='primary' onClick={handleSubmit} data-testid='submit-button'>Modify</Button>
       </Modal.Footer>
     </Modal>
     </>

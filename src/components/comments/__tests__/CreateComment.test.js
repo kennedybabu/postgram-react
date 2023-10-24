@@ -1,4 +1,4 @@
-import { render, fireEvent, screen } from "../../../helpers/test-utils";
+import { render, screen } from "../../../helpers/test-utils";
 import userEvent from "@testing-library/user-event";
 import CreateComment from "../CreateComment"
 import { faker } from "@faker-js/faker"
